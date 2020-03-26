@@ -1,0 +1,42 @@
+<!-- Напишите регулярные выражения, которые будут выбирать 
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $2.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>HOMEWORK 4.1</title>
+    <style>
+        body {
+            margin-top: 20px;
+            font-size: 20px;
+            background-color: #dcdede;
+        }
+        text-align: center;
+        font-size: 20px;
+        background-color: #dcdede;
+    </style>
+ </head>
+ <body>
+ 	<script type="text/javascript">
+ 		var pattern = /\d{3}.\d{3}.\d{3}.\d{3}/;
+        var text = "255.255.255.255";
+        document.write("ip адресс, пример - " + text + "  > " + pattern.test(text) + "<br />");
+
+ 		var pattern = /\d{5}/;
+        var text = "55535";
+        document.write("Индекс - " + text + " - 5 numbers > " + pattern.test(text) + "<br />");
+
+        var pattern = /\$\d{1}.\d{2},\s\$\d{1}.\d{2},\s\$\d{1}/;
+        var text = "$0.84, $2.84, $4";
+        document.write("цены в долларах - " + text + "  > " + pattern.test(text) + "<br />");
+
+ 		var pattern = /\d{1,2}\/\d{1,2}\/\d{4}/;
+        var text = "21/12/2014";
+        document.write("Дата в виде - " + text + " - день, месяц, год > " + pattern.test(text) + "<br />");
+ 	</script>
+ </body>
+ </html>

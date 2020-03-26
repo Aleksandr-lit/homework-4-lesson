@@ -1,0 +1,48 @@
+<!-- Доработайте пример, 005_thisExample.html, при наведении мыши к одному из блоков, цвет блока должен измениться, на уникальный, такой которого еще нету у существующих блоков. Также выведите в блок текстовое оповещение о информации цвета, который используется для фона данного блока. При попытке закрыть вкладку, придупредите пользователя о том что информация будет утеряна. Используйте window.onload.  -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HOMEWORK 4.2</title>
+    <style>
+        body {
+            background-color: #c6b8b8;
+            margin-top: 10%;
+            display: flex;
+            justify-content: center;
+        }
+        div {
+            border-radius: 50%;
+            background-color:green;
+            text-align: center;
+            font-size: 20px;
+            height: 150px;
+            width: 150px;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var divArr = document.getElementsByTagName("div");
+        var arrColors = ["red", "blue", "green", "black", "orange", "aqua", "violet", "#FFA07A", "#FFA07A", "#FF7F50", "#FF00FF", "#00FF00", "#800000", "#808000", "#00FF00", "#000080", "#696969", "#FF69B4", "#DC143C", "#C71585", "#191970", "#1E90FF", "#BA55D3", "#4B0082", "#F4A460", "#008080", "#778899",];
+        for (var i = 0; i < divArr.length; i++) {
+            divArr[i].onclick = function () {
+                var colorBackground = arrColors[Math.floor(Math.random()*arrColors.length)];
+                this.style.backgroundColor = colorBackground;
+                this.innerHTML = colorBackground;
+            }
+        }
+
+        window.onbeforeunload = function() { 
+            return "Данные не сохранены. Точно перейти?";
+        };
+    </script>
+</body>
+</html>
